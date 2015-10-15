@@ -24,11 +24,10 @@ var app = angular.module('app', [
 ])
 .factory('board', 
   require('./factories/board'))
+.factory('game', 
+  require('./factories/game'))
 
 
 angular.element(document).ready(function(){
 	angular.bootstrap(document, ['app'])
 })
-	// .run(function($rootscope){
-	// 	$rootScope.foo = 'hello Bar'
-	// })

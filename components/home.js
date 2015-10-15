@@ -1,30 +1,20 @@
 var h = require('hyperscript')
 var fs = require('fs');
-// var board = require('../factories/board')
+var _ = require('underscore')
 
-//first component
-/* it's looking for 
-	{
-		url
-		template
-		controller
-	}
-*/
 exports.url = '/'
-// exports.template = render().outerHTML
 exports.template = fs.readFileSync('views/main.html', 'utf-8')
 exports.controller = [
   '$rootScope',
   '$scope',
   '$state', 
   '$parse', 
-  '$interval', 
   '$q',
   'board',
   component
   ]
 
-function component (board, $state, $scope, $rootScope, $parse, $interval, $q){  
+function component (board, $state, $scope, $rootScope, $parse, $q){  
         //this allows the user to create a table
         $scope.create= function(input){ 
           $rootScope.game = {};
@@ -33,7 +23,6 @@ function component (board, $state, $scope, $rootScope, $parse, $interval, $q){
           $rootScope.values =[];
 
           if(input === 'beginning'){
-          	console.log('beginning')
             $rootScope.game.level = 10; 
             setUpGame($rootScope.game);
           }
@@ -47,24 +36,46 @@ function component (board, $state, $scope, $rootScope, $parse, $interval, $q){
           }
         };
 
-          var setUpGame = function(gameData){
+        var setUpGame = function(gameData){
+          	console.log('set up Game ', gameData)
             $scope.game = board.createTable(gameData).then(function(resp){
               $rootScope.game = resp;
               $rootScope.mines = resp.mines; 
               var test = Object.keys(resp.mines);
-              // defaultMines(resp.mines);
-              $rootScope.totalMines = _.filter(test, function(data){
+              defaultMines(resp.mines);
+              $rootScope.totalMines = __filter(test, function(data){
                 return $rootScope.mines[data] === -1; 
               })
-              // enableCells(resp);
+              enableCells(resp);
               $rootScope.selectedCells = [];
-              // $state.go('game');
+              $state.go('game');
             })
             return;
         }
+
+        var enableCells = function(gameData){
+          var array = [];
+            var test = Object.keys(gameData.classes);
+            _each(test, function(cell){
+              $rootScope.game.classes[cell] = false;
+              var element = cell[8] + cell[9];
+              var model = $parse(cell); 
+              model.assign($scope, false);
+            });
+            return;
+        }
+
+        var defaultMines = function(gameData){
+          var array = []; 
+          var test = Object.keys(gameData); 
+          _each(test, function(cell){
+            var thisClass = 'isMine' + cell; 
+            var model = $parse(thisClass); 
+            model.assign($rootScope, false); 
+          })
+
+          return; 
+        }
    }
-// function render (){
-// 	return h('h1', 'hello from home')
-// }
 
 

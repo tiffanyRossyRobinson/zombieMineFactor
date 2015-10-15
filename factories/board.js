@@ -1,8 +1,8 @@
 var _ = require('underscore')
 
-module.exports = function ($q){
+module.exports = function ($q) {
 		return {
-		          createTable : function(data){
+		     createTable : function(data){
 		            var deferred = $q.defer();
 		            data.rows = setRows(data.length);
 		            data.columns = setCols(data.width);
@@ -10,11 +10,11 @@ module.exports = function ($q){
 		            data.mines = setMines(data);
 		            deferred.resolve(data);
 		            return deferred.promise;
-		          }
+		          },
 
 		          setRows : function(length){
 		            return _range(length);
-		          }
+		          },
 
 		          setCols : function(length){
 		            var columns= [];
@@ -24,7 +24,7 @@ module.exports = function ($q){
 		              l = String.fromCharCode(l.charCodeAt(0) + 1);
 		            });
 		            return columns; 
-		          }
+		          },
 
 		          setCells : function(gameData){
 		              gameData.classes = []; 
@@ -35,7 +35,7 @@ module.exports = function ($q){
 		                });
 		              });
 		              return gameData.classes; 
-		          }
+		          },
 
 		          setMines : function(gameData){
 		              gameData.mines = []; 
