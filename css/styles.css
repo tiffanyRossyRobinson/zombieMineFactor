@@ -1,0 +1,104 @@
+*{
+	margin-top:0;
+	font-family: 'Orbitron', sans-serif;
+	text-align: center;
+}
+body{
+  background: url("zombies.png") repeat fixed;
+  background-size: auto;
+}
+
+a{
+	text-decoration:none;
+}
+
+.viewSection{
+	top: 0;
+	width: 80%;
+	margin-left:auto;
+	margin-right:auto;
+	height: 100vh;
+	background-color: gray;
+	border-radius: 5%;
+	padding-top: 3%;
+}
+.title{
+	color: red;
+	text-align:center;
+	text-shadow: 1px 1px black;
+	font-size: 40px;
+}
+
+.pageTitle{
+	margin-top: 3%;
+	text-align:center;
+	font-size: 20px;
+}
+
+.pageTitle h4{
+	margin-bottom: 2%;
+}
+.selectMode{
+	margin-top: 10%;
+	margin-bottom: 3%;
+	/*background: url(zombies.jpg);
+    background-size: cover cover;
+    background-repeat: no-repeat;*/
+    /*height: 300px;*/
+}
+
+.clearButton{
+	margin-bottom: 1%;
+	padding:6px;
+}
+
+.startButton, .runButton, .stopButton{
+	padding:6px;
+	display:inline;
+}
+
+.table{
+	width: 80%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+.table button{
+	border: 0;
+	padding: 0;
+	width:100%;
+	height: 100%;
+}
+
+td{
+	padding: 0;
+	width:40px;
+	height: 40px;
+	border: 1px solid gray;
+}
+tr{
+	padding: 0;
+}
+
+.Mine{
+	background: url(thriller.png);
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+}
+
+p{
+	margin-bottom: 0;
+	font-size: 8px;
+	color: blue;
+}
+
+.color{
+	background-color: lightGrey;
+}
+
+.hide{
+	display: none;
+}
+
+
+
