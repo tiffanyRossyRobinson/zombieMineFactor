@@ -16,5 +16,7 @@
     "fs": "0.0.2",
     "hyperscript": "^1.4.7",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
   }
 }

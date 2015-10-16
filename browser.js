@@ -1,4 +1,9 @@
 var h = require('hyperscript')
+var fs = require('fs')
+var insertCss = require('insert-css');
+var css = fs.readFileSync(__dirname + '/css/styles.css');
+insertCss(css);
+
 //include bootstrap 
 document.head.appendChild(
 	h('link', {

@@ -4,7 +4,7 @@
 	text-align: center;
 }
 body{
-  background: url("zombies.png") repeat fixed;
+  background: url(../css/zombies.png) repeat fixed;
   background-size: auto;
 }
 
@@ -41,10 +41,6 @@ a{
 .selectMode{
 	margin-top: 10%;
 	margin-bottom: 3%;
-	/*background: url(zombies.jpg);
-    background-size: cover cover;
-    background-repeat: no-repeat;*/
-    /*height: 300px;*/
 }
 
 .clearButton{
@@ -81,7 +77,7 @@ tr{
 }
 
 .Mine{
-	background: url(thriller.png);
+	background: url(../css/thriller.png);
     background-size: 40px 40px;
     background-repeat: no-repeat;
 }

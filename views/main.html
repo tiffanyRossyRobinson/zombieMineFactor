@@ -1,16 +1,37 @@
 <div class="viewSection">
-<h5>From the creaters of Game of zLife...</h5>
-<a href="#/"><h2 class="title">ZombieMine</h2></a>
+    <h5>From the creaters of Game of zLife...</h5>
+    <h2 class="title">ZombieMine</h2>
 
-<div class="selectMode">
-  <h3>What Phase of the Apocolypse are you in? </h3>
-  <button type="submit" class="startButton" ng-click="create('beginning')">Beginning</button>
-  <button type="submit" class="runButton" ng-click="create('middle')">Middle</button>
-  <button type="submit" class="stopButton" ng-click="create('end')">End</button>
-</div>
-<img src="css/zombies.jpg">
-  
+    <div ng-class="{'hide': !value}">
+          <div class="selectMode" >
+            <h3>What Phase of the Apocolypse are you in? </h3>
+            <button type="submit" class="startButton" ng-click="create('beginning')">Beginning</button>
+            <button type="submit" class="runButton" ng-click="create('middle')">Middle</button>
+            <button type="submit" class="stopButton" ng-click="create('end')">End</button>
+          </div>
+          
+          <img src="css/zombies.jpg">
 
+    </div>
+
+    <div ng-class="{'hide': value}">
+         <div class="pageTitle">
+               <h4 >Avoid the Zombies:</h4>
+              <button class="clearButton"  ng-click="clearAll(game)">Restart Game</button>
+              <button class="clearButton"  ng-click="changeLevel()">Change Level</button>
+        </div>
+            
+        <div class="table">
+           <table align="center">
+              <tr ng-repeat="row in game.rows">
+                <td ng-repeat="col in game.columns"><button ng-class="{'Mine': isMine{{row+col}}, 'color': isActive{{row+col}}}" ng-disabled="isActive{{row+col}}" ng-click="selectCell(row+col)">
+                  <p ng-class="{'hide': !isActive{{row+col}}}">{{mines[row+col]}}</p>
+                </button></td>
+            </tr>
+          </table>
+        </div> 
+
+    </div>
 </div>
 
 
