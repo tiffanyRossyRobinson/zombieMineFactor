@@ -8,7 +8,7 @@ Once the user selects their journey phase, the game will begin. If the user sele
 ## How To Install
 
 ```
-git clone https://github.com/tiffanyRossyRobinson/zombieMineFactor.git
+git clone https://github.com/tiffanyRossyRobinson/zombieMineFactor.git someDirectory
 cd someDirectory  
 npm install
 ```
